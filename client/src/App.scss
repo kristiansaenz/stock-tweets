@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Pacifico&display=swap');
+
+
+$prime-font: 'Pacifico', cursive;
+$sec-font: 'Open Sans', sans-serif;
+$tile-bg: #f5f5f5;
+$tile-font-color: #3c4144;
+$tile-name: #209cee;
+$foreground: #3c4144;
+$tile-hover: #ebebeb;
+
+
+.title {
+  font-family: $prime-font;
+}
+
+.subtitle {
+  font-family: $sec-font;
+  font-size: 1rem;
+}
+
+.delete.is-small:hover {
+  background-color: #ff3860;
+  color: white;
+}
+
+.tile.is-child.box {
+  // background-color: #f5f5f5;
+  background-color: $tile-bg;
+  color: $tile-font-color;
+}
+
+.tile {
+  flex-wrap: wrap;
+}
+
+.tile.is-child.box:hover {
+  background-color: $tile-hover;
+}
+
+strong {
+  color: $tile-name;
+}
+
+.section {
+  background-color: $foreground;
+}
