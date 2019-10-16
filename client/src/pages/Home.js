@@ -4,13 +4,16 @@ import TweetBoard from '../components/TweetBoard';
 import TagList from '../components/TagList';
 import axios from 'axios';
 import uuid from 'uuid';
+import Footer from '../components/Footer';
 
 
 class Home extends React.Component {
     state = {
         stock: 'MSFT',
         tags: [
-            {id: 1, name: "APPL"}
+            {id: 1, name: "MSFT", clicked: false},
+            {id: 1, name: "BABA", clicked: false},
+            {id: 1, name: "APPL", clicked: false}
         ],
         tweets: []
     }
@@ -61,13 +64,15 @@ class Home extends React.Component {
                 </div>                
                 </div>
             </div>
+            <Footer />
             </div>
 )}
 
     addTag(stock) {
         const newTag = {
             id: uuid.v4(),
-            name: stock
+            name: stock,
+            clicked: false
         }
         this.setState({ tags: [...this.state.tags.concat(newTag)]});
     }
@@ -83,18 +88,19 @@ class Home extends React.Component {
     })
 
     // show all the tags that don't equal the one you deleted
+    // when you delete tag, tweets based on that stock will disappear
     deleteTag = (id, name) => {
         this.setState({ tags: [...this.state.tags.filter(tag => tag.id !== id)] });
-        // alert('i removed ' + this.name + 'from board');
     }
 
+    // when you click a tag, it will change dark grey & filter tweets 
+    // based on stock names clicked, clicked will be turned to true
     filterTag = (id) => {
         // alert('i clicked it')
     }
 
     fetchStockTweets(url) {
         const Httpreq = new XMLHttpRequest()
-        //might need set this to true
         Httpreq.open('GET', url, false);
         Httpreq.send(null);
         var data = JSON.parse(Httpreq.responseText);

@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
                             type="text" 
                             value={this.props.stock}
                             onChange={this.props.onChange.bind(this)}
-                            placeholder="$StockTeets"
+                            placeholder="$"
                             />
                         </p>
                         <p class="control">
