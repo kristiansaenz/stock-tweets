@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f5d47eca951b89f848469eb9832f63b2",
+    "revision": "143f4c67c60a3b7a004188cd70f552c0",
     "url": "/stock-tweets/index.html"
   },
   {
-    "revision": "349ff8a9b72d1e043bdf",
+    "revision": "1d40c56a0b5dc2e2f4ca",
     "url": "/stock-tweets/static/css/main.26027b7b.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stock-tweets/static/js/2.0bb803e7.chunk.js"
   },
   {
-    "revision": "349ff8a9b72d1e043bdf",
-    "url": "/stock-tweets/static/js/main.cf6e1aa0.chunk.js"
+    "revision": "1d40c56a0b5dc2e2f4ca",
+    "url": "/stock-tweets/static/js/main.c2173ace.chunk.js"
   },
   {
     "revision": "ee6d8847ea1955577342",
