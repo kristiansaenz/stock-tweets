@@ -107,7 +107,7 @@ class Home extends React.Component {
     componentDidMount() {
         console.log(this.state.tags[0].name)
 
-        let url = "https://api.stocktwits.com/api/2/streams/symbol/" + this.state.stock + ".json?limit=30";
+        let url = "http://localhost:8080/" + "?id=" + this.state.stock;
         this.fetchStockTweets(url);
     }
 
