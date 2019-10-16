@@ -19,10 +19,11 @@ class Tweet extends React.Component {
                     <p>
                         <strong>{user.name}</strong> <small><b>@{user.username}</b></small> 
                         <br/>
-                        <small>{created_at}</small>
-                        <br/>
                         <br/>
                         { body }
+                        <br/>
+                        <br/>
+                        <small>{created_at}</small>
                     </p>
                     </div>
                 </div>
