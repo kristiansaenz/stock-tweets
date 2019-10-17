@@ -6,7 +6,7 @@ function Footer() {
         <footer class="footer is-info">
         <div class="content has-text-centered">
             <p>
-                Created by Kristian. Sponsored by Robinhuud.
+                Created by Kristian.
             </p>
             <br />
             <div class="columns is-centered is-mobile">
