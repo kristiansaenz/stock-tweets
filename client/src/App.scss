@@ -28,6 +28,8 @@ $tile-hover: #ebebeb;
   // background-color: #f5f5f5;
   background-color: $tile-bg;
   color: $tile-font-color;
+  max-height: 15rem;
+  overflow-y: scroll;
 }
 
 .tile {
@@ -49,4 +51,8 @@ strong {
 .footer {
   background-color: $tile-name;
   color: white;
+}
+
+.level-item {
+  max-width: 30rem;
 }

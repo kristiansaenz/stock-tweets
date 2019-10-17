@@ -12,8 +12,7 @@ class Home extends React.Component {
         stock: 'MSFT',
         tags: [
             {id: 1, name: "MSFT", clicked: false},
-            {id: 1, name: "BABA", clicked: false},
-            {id: 1, name: "APPL", clicked: false}
+            {id: 2, name: "BABA", clicked: false}
         ],
         tweets: []
     }
@@ -75,6 +74,7 @@ class Home extends React.Component {
             clicked: false
         }
         this.setState({ tags: [...this.state.tags.concat(newTag)]});
+        this.getTweets();
     }
 
     onSubmit = (e) => {
@@ -87,34 +87,57 @@ class Home extends React.Component {
         stock: e.target.value
     })
 
+    // always renders last stock in taglist
+    async getTweets(){
+        console.log("tags: " + this.state.tags.toString());
+        console.log("last tag: " + this.state.tags[this.state.tags.length - 1].name);
+        try {
+            const response =
+            await axios.get("http://localhost:8080/",
+                //   { params: {id: this.state.stock}}
+                {params: {id: this.state.tags[this.state.tags.length-1].name}}
+            )
+            var tweets = response.data.messages;
+            this.setState({ tweets: tweets });
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    // always renders stock that is clicked
+    async getTweetOnClick(id){
+        var clicked = this.state.tags.find(x => x.id === id).name;
+        try {
+            const response =
+            await axios.get("http://localhost:8080/",
+                { params: {id: clicked}}
+
+            )
+            var tweets = response.data.messages;
+            this.setState({ tweets: tweets });
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+
     // show all the tags that don't equal the one you deleted
     // when you delete tag, tweets based on that stock will disappear
     deleteTag = (id, name) => {
         this.setState({ tags: [...this.state.tags.filter(tag => tag.id !== id)] });
+        this.getTweets();
     }
 
     // when you click a tag, it will change dark grey & filter tweets 
     // based on stock names clicked, clicked will be turned to true
     filterTag = (id) => {
-        // alert('i clicked it')
-    }
-
-    fetchStockTweets(url) {
-        const Httpreq = new XMLHttpRequest()
-        Httpreq.open('GET', url, false);
-        Httpreq.send(null);
-        var data = JSON.parse(Httpreq.responseText);
-        var messages = data.messages;
-        console.log(data)
-
-        this.setState({ tweets: messages })
+        this.getTweetOnClick(id);
     }
 
     componentDidMount() {
-        console.log(this.state.tags[0].name)
-
-        let url = "http://localhost:8080/" + "?id=" + this.state.stock;
-        this.fetchStockTweets(url);
+        this.getTweets();
     }
 
 }

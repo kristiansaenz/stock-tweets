@@ -1,10 +1,12 @@
 import React from 'react';
+import moment from 'moment';
 
 
 class Tweet extends React.Component {
 
     render(){
         const { id, body, created_at, user } = this.props.tweet;
+        var time = moment(created_at).format('DD-MM-YYYY, h:mm a');
         return(
             <div class="tile is-parent">
             <article class="tile is-child box">
@@ -23,7 +25,7 @@ class Tweet extends React.Component {
                         { body }
                         <br/>
                         <br/>
-                        <small>{created_at}</small>
+                        <small>{time}</small>
                     </p>
                     </div>
                 </div>
