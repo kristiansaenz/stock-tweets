@@ -40,6 +40,10 @@ $tile-hover: #ebebeb;
   background-color: $tile-hover;
 }
 
+.tag {
+  cursor: pointer;
+}
+
 strong {
   color: $tile-name;
 }

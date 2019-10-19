@@ -11,7 +11,7 @@ class TagList extends React.Component {
                 key={tag.id}
                 tag={tag} 
                 deleteTag={this.props.deleteTag}
-                filterTag={this.props.filterTag}
+                clickTag={this.props.clickTag}
             />
         ))
     }
