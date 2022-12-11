@@ -23,7 +23,7 @@
   "homepage": "https://github.com/kristiansaenz/stock-tweets#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^1.19.4",
     "path": "^0.12.7",
     "request": "^2.88.0"
